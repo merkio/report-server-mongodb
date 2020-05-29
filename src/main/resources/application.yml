@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: report
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/tms
+
+server:
+  port: 8282
+logging:
+  file:
+    name: "${spring.application.name}.log"
+    clean-history-on-start: true
