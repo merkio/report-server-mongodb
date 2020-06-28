@@ -2,8 +2,6 @@ package io.space.geek.tms.report.model;
 
 import io.qameta.allure.DefaultLaunchResults;
 import io.space.geek.tms.commons.domain.BaseDocument;
-import io.space.geek.tms.commons.dto.report.RunConfigurationDTO;
-import io.space.geek.tms.commons.dto.report.RunStatisticsDTO;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -43,9 +41,6 @@ public class TestRun extends BaseDocument {
 
     private String sendTo;
 
-    private RunConfigurationDTO configuration;
-
-    private RunStatisticsDTO statisticsDTO;
 
     private Set<DefaultLaunchResults> results;
 
@@ -53,8 +48,7 @@ public class TestRun extends BaseDocument {
     private TestRun(String id, LocalDateTime createdOn, LocalDateTime updatedOn, Long projectId,
                    Long featureId, String name, String description, String tags, Integer status,
                    LocalDateTime started, LocalDateTime finished, Integer duration, String meta,
-                   String environment, Boolean manual, String sendTo, RunConfigurationDTO configuration,
-                   RunStatisticsDTO statisticsDTO, Set<DefaultLaunchResults> results) {
+                   String environment, Boolean manual, String sendTo, Set<DefaultLaunchResults> results) {
         super(id, createdOn, updatedOn);
         this.projectId = projectId;
         this.featureId = featureId;
@@ -69,8 +63,6 @@ public class TestRun extends BaseDocument {
         this.environment = environment;
         this.manual = manual;
         this.sendTo = sendTo;
-        this.configuration = configuration;
-        this.statisticsDTO = statisticsDTO;
         this.results = results;
     }
 }
